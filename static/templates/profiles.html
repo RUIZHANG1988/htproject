@@ -1,0 +1,15 @@
+<a ui-sref="newProfile" class="btn-primary btn-lg nodecoration">Add New Movie</a>
+
+<table>
+  <tr>
+    <td><h3>All profiles</h3></td>
+    <td></td>
+  </tr>
+  <tr ng-repeat="profile in profiles">
+    <td>{{profile.name}}</td>
+    <td>
+      <a class="btn btn-primary" ui-sref="viewProfile({id:profile._id})">View</a>
+      <a class="btn btn-danger"  ng-click="deleteProfile(profile-add)">Delete</a>
+    </td>
+  </tr>
+</table>

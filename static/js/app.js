@@ -1,28 +1,23 @@
-angular.module('app', []);
+angular.module('htApp', ['ui.router', 'ngResource', 'htApp.controllers', 'htApp.services']);
 
-angular.module('app').factory('messages',function(){
-  var messages = {};
-
-  messages.list = [];
-
-  messages.add = function(message){
-    messages.list.push({id: messages.list.length, text: message});
-  };
-
-  return messages
-});
-
-
-angular.module('app').controller('ListCtrl', function(messages){
-  var self = this;
-
-  self.messages = messages.list
-});
-
-angular.module('app').controller('PostCtrl', function(messages){
-  var self = this;
-
-  self.addMessage = function(message){
-    messages.add(messages)
-  };
+angular.module('htApp').config(function($stateProvider) {
+    $stateProvider.state('profiles', { // state for showing all profiles
+        url: '/profiles',
+        templateUrl: 'templates/profiles.html',
+        controller: 'ProfileListController'
+    }).state('viewProfile', { //state for showing single profile
+        url: '/profiles/:id/view',
+        templateUrl: 'templates/profile-view.html',
+        controller: 'ProfileViewController'
+    }).state('newProfile', { //state for adding a new profile
+        url: '/profiles/new',
+        templateUrl: 'templates/profile-add.html',
+        controller: 'ProfileCreateController'
+    }).state('editProfile', { //state for updating a profile
+        url: '/profiles/:id/edit',
+        templateUrl: 'templates/profile-edit.html',
+        controller: 'ProfileEditController'
+    });
+}).run(function($state) {
+    $state.go('profiles'); //make a transition to profile state when app starts
 });
