@@ -1,16 +1,12 @@
 /**
  * Created by RUI on 10/16/2016.
  */
-angular.module('htApp.controllers', []).controller('ProfileListController', function($scope, $state, popupService, $window, Profile) {
-    $scope.profiles = Profile.query(); //fetch all profiles. Issues a GET to /api/profiles
 
-    $scope.deleteProfile = function(profile) { // Delete a profile. Issues a DELETE to /api/profiles/:id
-        if (popupService.showPopup('Really delete this?')) {
-            profile.$delete(function() {
-                $window.location.href = ''; //redirect to home
-            });
-        }
-    };
+angular.module('htApp.controllers',['htApp.services']);
+
+angular.module('htApp.controllers', []).controller('ProfileListController', function($scope, $state, $window, Profile) {
+    $scope.profiles = Profile.query(); //fetch all profiles. Issues a GET to /api/profiles
+    
 })
 .controller('ProfileViewController', function($scope, $stateParams, Profile) {
     $scope.profile = Profile.get({
