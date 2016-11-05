@@ -4,7 +4,6 @@ from rest_framework.response import Response
 from userprofiles.models import Userprofile
 from userprofiles.serializers import UserprofileSerializer
 
-
 @api_view(['GET', 'POST'])
 def userprofile_list(request, format=None):
     """

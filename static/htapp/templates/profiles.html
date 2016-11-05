@@ -1,15 +1,55 @@
-<a ui-sref="newProfile" class="btn-primary btn-lg nodecoration">Add New Movie</a>
+<div ng-repeat="profile in profiles" class="col-md-4 col-sm-4 col-xs-6">
+          <!-- BEGIN PROFILE SIDEBAR -->
+          <div class="profile-sidebar">
+            <!-- PORTLET MAIN -->
+            <div class="portlet light profile-sidebar-portlet bordered">
+              <!-- SIDEBAR USERPIC -->
+              <div class="profile-userpic">
+                <img src="./img/default_avatar.png" class="img-responsive" alt=""> </div>
+              <!-- END SIDEBAR USERPIC -->
+              <!-- SIDEBAR USER TITLE -->
+              <div class="profile-usertitle">
+                <div class="profile-usertitle-name"> {{profile.name}} </div>
+                <div class="profile-usertitle-job"> {{profile.specialty}} </div>
+              </div>
+              <!-- END SIDEBAR USER TITLE -->
+              <!-- SIDEBAR BUTTONS -->
+              <div class="profile-userbuttons">
+                <button type="button" class="btn btn-circle green btn-sm">CHAT</button>
+                <button type="button" class="btn btn-circle red btn-sm">BOOK</button>
+              </div>
+              <!-- END SIDEBAR BUTTONS -->
+              <!-- SIDEBAR MENU -->
+              <div class="profile-usermenu">
 
-<table>
-  <tr>
-    <td><h3>All profiles</h3></td>
-    <td></td>
-  </tr>
-  <tr ng-repeat="profile in profiles">
-    <td>{{profile.name}}</td>
-    <td>
-      <a class="btn btn-primary" ui-sref="viewProfile({id:profile._id})">View</a>
-      <a class="btn btn-danger"  ng-click="deleteProfile(profile-add)">Delete</a>
-    </td>
-  </tr>
-</table>
+              </div>
+              <!-- END MENU -->
+            </div>
+            <!-- END PORTLET MAIN -->
+            <!-- PORTLET MAIN -->
+            <div class="portlet light bordered">
+              <!-- STAT -->
+              <div class="row list-separated profile-stat">
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                  <div class="uppercase profile-stat-title"> Yes </div>
+                  <div class="uppercase profile-stat-text"> Phone Verified </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                  <div class="uppercase profile-stat-title"> YES </div>
+                  <div class="uppercase profile-stat-text"> Licensed </div>
+                </div>
+              </div>
+              <!-- END STAT -->
+              <div>
+                <h4 class="profile-desc-title">About {{profile.name}}</h4>
+                <span class="profile-desc-text"> {{profile.introduction}} </span>
+                <div class="margin-top-20 profile-desc-link">
+                  <i class="fa fa-mobile"></i>
+                  <a href="tel:{{profile.phone}}">{{profile.phone}}</a>
+                </div>
+              </div>
+            </div>
+            <!-- END PORTLET MAIN -->
+          </div>
+          <!-- END PAGE BASE CONTENT -->
+</div>

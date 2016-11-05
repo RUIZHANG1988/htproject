@@ -1,7 +1,6 @@
 angular.module('htApp', ['ui.router', 'ngResource', 'htApp.controllers', 'htApp.services']);
 
 
-
 angular.module('htApp').config(function($stateProvider) {
     $stateProvider.state('profiles', { // state for showing all profiles
         url: '/profiles',
